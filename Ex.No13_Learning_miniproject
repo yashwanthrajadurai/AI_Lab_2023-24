@@ -1,14 +1,48 @@
-# Ex.No: 10 Learning – Use Supervised Learning  
-### DATE:                                                                            
-### REGISTER NUMBER : 
+# Ex.No: 13 Learning –A shallow feed-forward neural network with one hidden layer for binary classification
+### DATE: 15-11-2025                                                   
+### REGISTER NUMBER : 212222040184
 ### AIM: 
-To write a program to train the classifier for -----------------.
+A shallow feed-forward neural network with one hidden layer for binary classification
 ###  Algorithm:
 
-### Program:
+1.Import the dataset, clean, and normalize it for analysis.
+2. Identify and select key features relevant to the target prediction.
+3. Choose an appropriate machine learning model (e.g., Logistic Regression, LightGBM, etc.).
+4. Train the selected model using the training dataset.
+5. Evaluate the model performance using metrics such as accuracy, precision, recall, and AUC-ROC.
+6.Interpret the model's predictions and visualize the outcomes with relevant graphs.
+Result (One-line):
 
+
+### Program:
+```
+step1:
+import pygad
+import numpy
+import numpy as np
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense
+step-2
+X = np.array([[0, 0], [0, 1], [1, 0], [1, 1]])
+y = np.array([[0], [1], [1], [0]])
+step-3
+model = Sequential()
+model.add(Dense(2, input_dim=2, activation='relu'))
+model.add(Dense(1, activation='sigmoid'))
+step-4
+model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
+model.fit(X, y, epochs=10, verbose=0)
+_, accuracy = model.evaluate(X, y)
+step-5
+print(f"Accuracy: {accuracy * 100:.2f}%")
+predictions = model.predict(X)
+predictions = np.round(predictions).astype(int)
+for i in range(len(X)):
+   print(f"Input: {X[i]} => Predicted Output: {predictions[i][0]}, Actual Output: {y[i][0]}")
+```
 
 ### Output:
+"C:\Users\yashw\OneDrive\Pictures\Screenshots\Screenshot (7).png"
 
 
 ### Result:
